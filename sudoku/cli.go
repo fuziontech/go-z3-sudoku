@@ -113,22 +113,3 @@ func (a *Args) validPlacement(board []byte, x, y int, val byte) bool {
 
 	return true
 }
-
-// Example usage:
-// func main() {
-//     args := NewArgs()
-//     var board []byte
-//     var err error
-//
-//     if args.input != "" {
-//         board, err = args.BoardFromFile()
-//         if err != nil {
-//             fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-//             os.Exit(1)
-//         }
-//     } else {
-//         board = args.GenerateBoard()
-//     }
-//
-//     // Use the board...
-// }
