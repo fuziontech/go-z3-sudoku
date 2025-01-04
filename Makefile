@@ -16,7 +16,11 @@ libz3.a: vendor/z3
 	cp vendor/z3/build/libz3.a .
 	cp libz3.a vendor/github.com/fuziontech/go-z3/
 
-vendor/z3:
+tidy:
+	go mod tidy
+	go mod vendor
+
+vendor/z3: tidy
 	mkdir -p vendor
 	git clone https://github.com/Z3Prover/z3.git vendor/z3
 	cd vendor/z3 && git reset --hard && git clean -fdx
