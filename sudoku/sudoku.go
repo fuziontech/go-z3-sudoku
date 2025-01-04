@@ -34,9 +34,9 @@ func NewDefaultCell(ctx *z3.Context, pos Pos) *Cell {
 }
 
 // NewInputCell creates a new cell with a fixed input value
-func NewInputCell(ctx *z3.Context, value int64) *Cell {
+func NewInputCell(ctx *z3.Context, value int) *Cell {
 	return &Cell{
-		value:     ctx.Int(int(value), ctx.IntSort()),
+		value:     ctx.Int(value, ctx.IntSort()),
 		fromInput: true,
 	}
 }
@@ -57,7 +57,7 @@ func (c *Cell) applyConstraints(ctx *z3.Context, solver *z3.Solver) {
 	nine := ctx.Int(9, ctx.IntSort())
 
 	solver.Assert(c.value.Ge(one))
-	solver.Assert(c.value.Lt(nine))
+	solver.Assert(c.value.Le(nine))
 }
 
 // Model represents the entire Sudoku board
@@ -78,7 +78,7 @@ func NewModel(ctx *z3.Context, input []byte) *Model {
 			if nextChar == '.' {
 				board[pos] = NewDefaultCell(ctx, pos)
 			} else {
-				value := int64(nextChar - '0')
+				value := int(nextChar) - '0'
 				board[pos] = NewInputCell(ctx, value)
 			}
 		}

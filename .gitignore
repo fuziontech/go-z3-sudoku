@@ -1,2 +1,3 @@
 libz3.a
 vendor/
+go-z3-sudoku
