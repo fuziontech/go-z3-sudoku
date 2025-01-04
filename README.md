@@ -1,6 +1,7 @@
 # Go Z3 Sudoku Solver
 
 A Sudoku puzzle solver implemented in Go using Microsoft's Z3 theorem prover.
+Z3 is an SMT https://en.wikipedia.org/wiki/Satisfiability_modulo_theories solver.
 
 <img width="597" alt="image" src="https://github.com/user-attachments/assets/49bd2eba-8a71-4cdf-a506-9360cc20d0c6" />
 
