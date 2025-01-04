@@ -21,7 +21,17 @@ This project demonstrates how to use Z3's constraint solving capabilities to sol
 ## Building
 
 1. Clone the repository
-2. Build Z3 static library:
+2. Install Z3 on brew
+```
+brew install z3
+```
+3. Setup Z3 in your PATH
+```
+export CGO_CFLAGS="-I$(brew --prefix z3)/include"
+export CGO_LDFLAGS="-L$(brew --prefix z3)/lib"
+export DYLD_LIBRARY_PATH="$(brew --prefix z3)/lib"
+```
+4. Build Z3 static library:
 ```
 make
 ```
